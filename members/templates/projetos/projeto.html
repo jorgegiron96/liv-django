@@ -1,0 +1,154 @@
+{% extends 'base.html'%} {% block 'cadastrar-talentos' %}
+<section id="cadastro-perfil">
+  <form action="" method="POST">
+    {% csrf_token %}
+    <div class="row">
+      <div class="col">
+        <h2>Cadastre seu projeto</h2>
+      </div>
+      <div class="col">
+        <h2>Área de atuação</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"
+            >Nome do Projeto</label
+          >
+          <input type="text" class="form-control" name="nome-projeto" />
+          <!--Video 1-->
+          <label for="exampleInputEmail1" class="form-label" >Link do video 1</label>
+          <input type="text" class="form-control" name="video1" />  
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="flexRadioDefault"
+              id="flexRadioDefault1"
+            />
+            <label class="form-check-label" for="flexRadioDefault1">
+              Default radio
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="flexRadioDefault"
+              id="flexRadioDefault2"
+              checked
+            />
+            <label class="form-check-label" for="flexRadioDefault2">
+              Default checked radio
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="flexRadioDefault"
+              id="flexRadioDefault1"
+            />
+            <label class="form-check-label" for="flexRadioDefault1">
+              Default radio
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="flexRadioDefault"
+              id="flexRadioDefault2"
+              checked
+            />
+            <label class="form-check-label" for="flexRadioDefault2">
+              Default checked radio
+            </label>
+          </div>
+          <!--Video 2-->
+          <label for="exampleInputEmail1" class="form-label"
+            >Link do video 2</label
+          >
+          <input type="text" class="form-control" name="video2" />
+
+          <label for="exampleInputPassword1" class="form-label">Senha</label>
+          <input type="password" class="form-control" name="password1" />
+          <label for="exampleInputPassword1" class="form-label"
+            >Confirmar Senha</label
+          >
+          <input type="password" class="form-control" name="password2" />
+        </div>
+      </div>
+      <div class="col">
+        <div class="mt-4">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="flexCheckDefault"
+            />
+            <label class="form-check-label" for="flexCheckDefault">
+              UX Design
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="flexCheckDefault"
+            />
+            <label class="form-check-label" for="flexCheckDefault">
+              Ui Design
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="flexCheckDefault"
+            />
+            <label class="form-check-label" for="flexCheckDefault">
+              UX Writer
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="flexCheckDefault"
+            />
+            <label class="form-check-label" for="flexCheckDefault">
+              UX Strategy
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="flexCheckDefault"
+            />
+            <label class="form-check-label" for="flexCheckDefault">
+              UX Research
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Check me out</labl>e
+        </div> -->
+    <button type="submit" class="btn btn-primary btn-base">Cadastrar</button>
+    <p class="text-center">
+      If you already have an account, <a href="/login">login</a> instead.
+    </p>
+  </form>
+</section>
+{% endblock %}
