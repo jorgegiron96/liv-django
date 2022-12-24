@@ -20,7 +20,7 @@ def talento_detalhe(request, id):
     
     obj = get_object_or_404(Talento, pk=id)
     
-    return render(request,'perfil.html', {'obj':obj})
+    return render(request,'talento-detalhe.html', {'obj':obj})
 
 
 

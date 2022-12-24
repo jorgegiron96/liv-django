@@ -4,8 +4,8 @@ from django.contrib import messages
 from django.http.response import HttpResponse
 from django.contrib.auth.models import User
 from django.shortcuts import render, get_object_or_404
-from talentos.models import Talento
-from members.forms import UserEditForm
+from talentos.models import Talento, Projeto
+from django.contrib.auth.decorators import login_required
 
 def login_user(request):
 
@@ -26,12 +26,14 @@ def login_user(request):
         print('não logou')
         return render(request, 'login.html')
 
-
+@login_required
 def home(request):
     current_user = request.user
     
     obj = get_object_or_404(Talento, user=current_user)
-    form = UserEditForm(instance =current_user)
+    projetos = Projeto.objects.filter(talento=obj.pk)
+    print(projetos)
+
     if request.method == 'POST':
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
@@ -54,14 +56,14 @@ def home(request):
                         is_uxwriter = ux_writer
                         )     
             obj = get_object_or_404(Talento, user=current_user)             
-            return render(request,'home.html', {'obj':obj})
+            return render(request,'home.html', {'obj':obj,
+            'projetos': projetos})
         else:
             print('Usuário não existe')
     else:
         print('TÁ NO GET')
-        form = UserEditForm(instance =current_user)
-        return render(request,'home.html', {'obj':obj,
-        'form':form})
+        return render(request,'home.html', {'obj':obj, 
+            'projetos': projetos})
 
 def register_view(request):
 
@@ -89,6 +91,34 @@ def logout_view(request):
     logout(request)
     return render(request, 'login.html')
 
-def projeto(request):
+@login_required
+def projeto_detalhe(request, id):
+    talento = get_object_or_404(Talento, user=request.user)
+    obj = get_object_or_404(Projeto, pk=id, talento=talento)
+    about_choices = [c for c in obj.ABOUT_PROJECT_CHOICES]
+    horario_choices = [h for h in obj.HORARIOS]
+    semana_choices = [s for s in obj.DIAS_SEMANA]
+    dias_da_semana = obj.semana_entrev[:]
+    horarios_disponiveis = obj.horario_entrev[:]
+    
+    if request.method == 'POST':
+        semana_entrev = request.POST.getlist('semana_entrev')
+        nome = request.POST.get('nome')
+        # video1 = request.POST.get('video1')
+        # video1_about = request.POST.get('video1_about')
+        # video2 = request.POST.get('video2')
+        # video2_about = request.POST.get('video2_about')
+        # video3 = request.POST.get('video3')
+        # video3_about = request.POST.get('video3_about')
+        horario_entrev= request.POST.getlist('horario_entrev')
+        print(semana_entrev)
+        print(nome)
+        return redirect('projeto-detalhe',id)
+    else:
+        return render(request,'projetos/projeto-detalhe.html', {'obj':obj,
+        'about_choices':about_choices,
+        'horario_choices':horario_choices,
+        'semana_choices':semana_choices,
+        'dias_da_semana': dias_da_semana,
+        'horarios_disponiveis': horarios_disponiveis})
 
-    return render(request,'projetos/projeto.html')

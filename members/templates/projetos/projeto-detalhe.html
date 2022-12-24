@@ -1,0 +1,132 @@
+{% extends 'base.html'%} {% block 'cadastrar-talentos' %}
+<section id="cadastro-projeto">
+  <form action="" method="POST">
+    {% csrf_token %}
+    <div class="row">
+      <div class="col">
+        <h2>Editar projeto</h2>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Nome do Projeto</label>
+          <input type="text" class="form-control" name="nome" value="{{obj.nome}}" />
+
+          <!--Video 1-->
+          <label for="exampleInputEmail1" class="form-label">Link do video 1</label>
+          <input type="text" class="form-control" name="video1" value="{{obj.video1}}" />
+          <label for="exampleInputEmail1" class="form-label">O vídeo é sobre:</label>
+          <div>
+            {% for c in about_choices %}
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="video1_about" id="flexRadioDefault1" value="{{c.0}}"
+                {% if obj.video1_about == c.0 %} checked {% endif %} />
+              <label class="form-check-label" for="flexRadioDefault1">
+                {{c.1}}
+              </label>
+            </div>
+            {% endfor %}
+          </div>
+          <!--Video 2-->
+          <label for="exampleInputEmail1" class="form-label">Link do video 2</label>
+          <input type="text" class="form-control" name="video2" value="{{obj.video2}}" />
+          <label for="exampleInputEmail1" class="form-label">O vídeo é sobre:</label>
+          <div>
+            {% for c in about_choices %}
+            <div class="form-check form-check-inline 2">
+              <input class="form-check-input" type="radio" name="video2_about" id="flexRadioDefault2" value="{{c.0}}"
+                {% if obj.video2_about == c.0 %} checked {% endif %} />
+              <label class="form-check-label" for="flexRadioDefault2">
+                {{c.1}}
+              </label>
+            </div>
+            {% endfor %}
+          </div>
+
+          <!--Video 3-->
+          <label for="exampleInputEmail1" class="form-label">Link do video 3</label>
+          <input type="text" class="form-control" name="video3" value="{{obj.video3}}" />
+          <label for="exampleInputEmail1" class="form-label">O vídeo é sobre:</label>
+          <div>
+            {% for c in about_choices %}
+            <div class="form-check form-check-inline min-width">
+              <input class="form-check-input" type="radio" name="flexRadioDefault3" id="flexRadioDefault3"
+                value="{{c.0}}" {% if obj.video3_about == c.0 %} checked {% endif %} />
+              <label class="form-check-label" for="flexRadioDefault3">
+                {{c.1}}
+              </label>
+            </div>
+            {% endfor %}
+          </div>
+
+        </div>
+      </div>
+      <div class="col">
+
+        <!--Add currículo-->
+        <div class="mt-4">
+          <label class="form-check-label" for="flexRadioDefault1">
+            Faça o upload do seu currículo.
+          </label>
+          <button type="submit" class="btn btn-primary btn-base flex-btn">Currículo</button>
+        </div>
+
+        <!--Add projeto-->
+        <div class="mt-4">
+          <label class="form-check-label" for="flexRadioDefault1">
+            Adicione o projeto inteiro com imagens
+          </label>
+          <button type="submit" class="btn btn-primary btn-base flex-btn">Projeto</button>
+        </div>
+
+        <!--Add dias da semana-->
+        <div class="mt-4">
+          <label class="form-check-label" for="flexRadioDefault1">
+            Selecione os melhores dias e horários para o recrutador agendar uma entrevista.
+          </label>
+        </div>
+        <div class="mt-4">
+          <label class="form-check-label" for="flexRadioDefault1">
+            Semana
+          </label>
+          <div>
+
+            {% for s in semana_choices %}
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name = "semana_entrev" value="{{s.0}}" id="flexCheckDefault"
+                {% if s.0 in dias_da_semana  %} checked {% endif %}>
+              <label class="form-check-label" for="flexCheckDefault">
+                {{s.1}}
+              </label>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+
+        <!--Add horários-->
+
+        <div class="mt-4">
+          <label class="form-check-label" for="flexRadioDefault1">
+            Horario
+          </label>
+          <div>
+            {% for h in horario_choices %}
+
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name = 'horario_entrev' value="{{h.0}}" id="flexCheckDefault"
+                {% if h.0 in horarios_disponiveis  %} checked {% endif %}>
+              <label class="form-check-label" for="flexCheckDefault">
+                {{h.1}}
+              </label>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary btn-base">Atualizar</button>
+  </form>
+</section>
+{% endblock %}
