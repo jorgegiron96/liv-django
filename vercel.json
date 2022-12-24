@@ -6,8 +6,11 @@
     }],
     "routes": [
         {
-            "src": "/(.*)",
+
+            "src": "package.json",
             "dest": "vercel_app/wsgi.py"
         }
     ]
 }
+
+
