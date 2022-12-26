@@ -3,14 +3,12 @@ import os
 
 if os.environ['ENV'] == 'dev':
     from .local import *
-    print('startando local')
- 
-    DEBUG = True
+    print('está no LOCAL')
+    print('DEBUG: ', DEBUG)
 
 else:
     print('está no PROD')
-
-    DEBUG = False
+    print('DEBUG: ', DEBUG)
     from .production import *
 
 
