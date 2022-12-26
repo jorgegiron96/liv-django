@@ -9,7 +9,7 @@ if os.environ['ENV'] == 'dev':
 
 else:
 
-    DEBUG = True
+    DEBUG = False
     from .production import *
 
 
