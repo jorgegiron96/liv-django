@@ -6,7 +6,7 @@ if os.environ['ENV'] == 'dev':
     print('está no LOCAL')
     print('DEBUG: ', DEBUG)
 
-else:
+elif os.environ['ENV'] == 'prod':
     print('está no PROD')
     print('DEBUG: ', DEBUG)
     from .production import *
