@@ -1,9 +1,15 @@
 from .base import *
+import os
 
-try:
+if os.environ['ENV'] == 'dev':
     from .local import *
-    live = False
-except ImportError:
-    live = True
-if live:
+    print('startando local')
+ 
+    DEBUG = True
+
+else:
+
+    DEBUG = True
     from .production import *
+
+
