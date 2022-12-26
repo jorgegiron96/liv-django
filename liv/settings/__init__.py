@@ -8,6 +8,7 @@ if os.environ['ENV'] == 'dev':
     DEBUG = True
 
 else:
+    print('está no PROD')
 
     DEBUG = False
     from .production import *
