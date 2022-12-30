@@ -31,45 +31,46 @@
           <ul class="nav nav-pills">
 
             {% if request.user.is_authenticated%}
-              <li class="nav-item">
-                <a class="nav-link active btn-base" aria-current="page"
-                  href="{% url 'home' %}">Perfil</a>
-              </li>
+            <li class="nav-item">
+              <a class="nav-link active btn-base" aria-current="page" href="{% url 'home' %}">Perfil</a>
+            </li>
 
-              <li class="nav-item">
-                <a class="nav-link active btn-base" aria-current="page"
-                  href="{% url 'logout' %}?next={% url 'login' %}">Sair</a>
-              </li>
+            <li class="nav-item">
+              <a class="nav-link active btn-base" aria-current="page"
+                href="{% url 'logout' %}?next={% url 'login' %}">Sair</a>
+            </li>
 
             {% else %}
 
-              <li class="nav-item">
-                <a class="nav-link active btn-base" aria-current="page" href="{% url 'login' %}">Login</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active btn-base" aria-current="page" href="{% url 'register' %}">Cadastrar</a>
-              </li>
+            <li class="nav-item">
+              <a class="nav-link active btn-base" aria-current="page" href="{% url 'login' %}">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active btn-base" aria-current="page" href="{% url 'register' %}">Cadastrar</a>
+            </li>
 
             {% endif %}
 
           </ul>
-          </div>
         </div>
+      </div>
     </nav>
   </header>
   <div class="wrapper">
+    <div class="title-header">
+      <div class="title">
+        <img src="{% static 'arquivos\img\logo.png' %}">
+        <h1>Plataforma Liv</h1>
+      </div>
+      <div class="title">
+        <h4>Banco de talentos em UX design</4>
+      </div>
+    </div>
+
     <div class="category-filter">
       <div class="container">
-        <div class="title">
-          <img src="{% static 'arquivos\img\logo.png' %}">
-          <h1>Plataforma Liv</h1>
-        </div>
-        <div class="title">
-          <h4>Banco de talentos em UX design</4>
-        </div>
-
         <section id="cadastrar-talentos">
-   
+
 
           {% block 'cadastrar-talentos'%}
           {% endblock %}
@@ -87,12 +88,9 @@
     </div>
   </div>
   <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
-<df-messenger
-  intent="WELCOME"
-  chat-title="Lívia"
-  agent-id="361f0407-9a25-41a0-b225-df0a7eb364d9"
-  language-code="pt-br"
-></df-messenger>
+  <df-messenger intent="WELCOME" chat-title="Lívia" agent-id="361f0407-9a25-41a0-b225-df0a7eb364d9"
+    language-code="pt-br"></df-messenger>
   <script src="{% static 'talentos\js\talentos.js' %}"></script>
 </body>
+
 </html>
