@@ -19,6 +19,12 @@ body{
     margin: 0 auto;
     padding: 20px;
 }
+
+.wrapper .title-header{
+    margin: 10px;
+    
+}
+
 .category-filter{
     margin-top: 40px;
 }

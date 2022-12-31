@@ -1,4 +1,7 @@
-{% extends 'base.html'%} {% block 'cadastrar-talentos' %}
+{% extends 'base.html'%}
+
+
+{% block content %}
 <section id="cadastro-perfil">
   <form action="" method="POST">
     {% csrf_token %}
@@ -19,65 +22,38 @@
           <input type="email" class="form-control" name="email" />
           <label for="exampleInputPassword1" class="form-label">Senha</label>
           <input type="password" class="form-control" name="password1" />
-          <label for="exampleInputPassword1" class="form-label"
-            >Confirmar Senha</label
-          >
+          <label for="exampleInputPassword1" class="form-label">Confirmar Senha</label>
           <input type="password" class="form-control" name="password2" />
         </div>
       </div>
       <div class="col">
         <div class="mt-4">
           <div class="form-check">
-            <input
-              class="form-check-input"
-              type="checkbox"
-              value=""
-              id="flexCheckDefault"
-            />
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
             <label class="form-check-label" for="flexCheckDefault">
               UX Design
             </label>
           </div>
           <div class="form-check">
-            <input
-              class="form-check-input"
-              type="checkbox"
-              value=""
-              id="flexCheckDefault"
-            />
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
             <label class="form-check-label" for="flexCheckDefault">
               Ui Design
             </label>
           </div>
           <div class="form-check">
-            <input
-              class="form-check-input"
-              type="checkbox"
-              value=""
-              id="flexCheckDefault"
-            />
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
             <label class="form-check-label" for="flexCheckDefault">
               UX Writer
             </label>
           </div>
           <div class="form-check">
-            <input
-              class="form-check-input"
-              type="checkbox"
-              value=""
-              id="flexCheckDefault"
-            />
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
             <label class="form-check-label" for="flexCheckDefault">
               UX Strategy
             </label>
           </div>
           <div class="form-check">
-            <input
-              class="form-check-input"
-              type="checkbox"
-              value=""
-              id="flexCheckDefault"
-            />
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
             <label class="form-check-label" for="flexCheckDefault">
               UX Research
             </label>
