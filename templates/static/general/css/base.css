@@ -3,6 +3,13 @@
 
 header{
   height: 80px;
+  
+}
+
+
+.wrapper .title-header{
+  margin: 10px;
+  padding: 10px;
 }
 .profile-info {
   width: 1000px;
@@ -358,12 +365,9 @@ body {
 }
 
 .category-filter {
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
-.title {
-  margin-bottom: 40px;
-}
 
 .title h1 {
   color: #1b1919;
@@ -469,15 +473,15 @@ body {
 }
 
 .filter-items {
+
   background-color: red;
-  margin-top: 100px;
+  margin-top: 30px;
   background: #ffffff;
   box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.25);
   border-radius: 4px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-
   justify-content: space-evenly;
 }
 

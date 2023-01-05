@@ -5,3 +5,5 @@ class TalentoEditForm(forms.Form):
     class Meta:
         model = Talento
         fields = "__all__"
+
+

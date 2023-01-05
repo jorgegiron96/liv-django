@@ -122,3 +122,32 @@ def projeto_detalhe(request, id):
         'dias_da_semana': dias_da_semana,
         'horarios_disponiveis': horarios_disponiveis})
 
+# def projeto_register(request):
+    # talento = get_object_or_404(Talento, user=request.user)
+    # obj = get_object_or_404(Projeto, pk=id, talento=talento)
+    # about_choices = [c for c in obj.ABOUT_PROJECT_CHOICES]
+    # horario_choices = [h for h in obj.HORARIOS]
+    # semana_choices = [s for s in obj.DIAS_SEMANA]
+    # dias_da_semana = obj.semana_entrev[:]
+    # horarios_disponiveis = obj.horario_entrev[:]
+    
+    # if request.method == 'POST':
+    #     semana_entrev = request.POST.getlist('semana_entrev')
+    #     nome = request.POST.get('nome')
+    #     # video1 = request.POST.get('video1')
+    #     # video1_about = request.POST.get('video1_about')
+    #     # video2 = request.POST.get('video2')
+    #     # video2_about = request.POST.get('video2_about')
+    #     # video3 = request.POST.get('video3')
+    #     # video3_about = request.POST.get('video3_about')
+    #     horario_entrev= request.POST.getlist('horario_entrev')
+    #     print(semana_entrev)
+    #     print(nome)
+    #     return redirect('projeto-detalhe',id)
+    # else:
+    #     return render(request,'projetos/projeto-detalhe.html', {'obj':obj,
+    #     'about_choices':about_choices,
+    #     'horario_choices':horario_choices,
+    #     'semana_choices':semana_choices,
+    #     'dias_da_semana': dias_da_semana,
+    #     'horarios_disponiveis': horarios_disponiveis})

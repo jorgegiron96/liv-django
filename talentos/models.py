@@ -8,6 +8,8 @@ class Talento(models.Model):
     titulo = models.CharField(max_length=50)
     etapa = models.CharField(max_length=50)
     video   = models.CharField(max_length=120)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
     is_uxdesigner = models.BooleanField()
     is_uidesigner = models.BooleanField()
     is_uxwriter = models.BooleanField()
@@ -69,6 +71,8 @@ class Projeto(models.Model):
     talento = models.ForeignKey(Talento, on_delete=models.CASCADE)
     horario_entrev = MultiSelectField(choices=HORARIOS,max_choices=5, max_length=30, default='0')
     semana_entrev = MultiSelectField(choices=DIAS_SEMANA,max_choices=5, max_length=30, default='1')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
     horario_entrev
     def __str__(self) -> str:
         return self.nome
