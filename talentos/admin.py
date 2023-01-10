@@ -9,7 +9,7 @@ class TalentoAdmin(admin.ModelAdmin):
 
 class ProjetoAdmin(admin.ModelAdmin):
     
-    list_display  = ('nome','titulo', 'link', 'talento')
+    list_display  = ('nome','titulo', 'talento')
 
 
 admin.site.register(Talento, TalentoAdmin)

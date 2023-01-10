@@ -1,0 +1,17 @@
+{% extends 'base.html'%} {% block content %}
+<section id="cadastro-projeto">
+
+
+  <form method="post" action="">
+    {% csrf_token %}
+    <h5 class="title">Tem certeza que deseja excluir o projeto <b>{{obj}}</b>? </h1>
+    <a class="btn btn-secondary" href="{% url 'home' %}">Cancel</a>
+    <input class="btn btn-secondary" type="submit" value="Delete">
+
+  </form>
+  
+
+
+</section>
+
+{% endblock %}

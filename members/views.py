@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, get_object_or_404
 from talentos.models import Talento, Projeto
 from django.contrib.auth.decorators import login_required
+from .forms import ProjetoCreateForm
 
 def login_user(request):
 
@@ -104,12 +105,12 @@ def projeto_detalhe(request, id):
     if request.method == 'POST':
         semana_entrev = request.POST.getlist('semana_entrev')
         nome = request.POST.get('nome')
-        # video1 = request.POST.get('video1')
-        # video1_about = request.POST.get('video1_about')
-        # video2 = request.POST.get('video2')
-        # video2_about = request.POST.get('video2_about')
-        # video3 = request.POST.get('video3')
-        # video3_about = request.POST.get('video3_about')
+        video1 = request.POST.get('video1')
+        video1_about = request.POST.get('video1_about')
+        video2 = request.POST.get('video2')
+        video2_about = request.POST.get('video2_about')
+        video3 = request.POST.get('video3')
+        video3_about = request.POST.get('video3_about')
         horario_entrev= request.POST.getlist('horario_entrev')
         print(semana_entrev)
         print(nome)
@@ -122,32 +123,48 @@ def projeto_detalhe(request, id):
         'dias_da_semana': dias_da_semana,
         'horarios_disponiveis': horarios_disponiveis})
 
-# def projeto_register(request):
-    # talento = get_object_or_404(Talento, user=request.user)
-    # obj = get_object_or_404(Projeto, pk=id, talento=talento)
-    # about_choices = [c for c in obj.ABOUT_PROJECT_CHOICES]
-    # horario_choices = [h for h in obj.HORARIOS]
-    # semana_choices = [s for s in obj.DIAS_SEMANA]
-    # dias_da_semana = obj.semana_entrev[:]
-    # horarios_disponiveis = obj.horario_entrev[:]
-    
-    # if request.method == 'POST':
-    #     semana_entrev = request.POST.getlist('semana_entrev')
-    #     nome = request.POST.get('nome')
-    #     # video1 = request.POST.get('video1')
-    #     # video1_about = request.POST.get('video1_about')
-    #     # video2 = request.POST.get('video2')
-    #     # video2_about = request.POST.get('video2_about')
-    #     # video3 = request.POST.get('video3')
-    #     # video3_about = request.POST.get('video3_about')
-    #     horario_entrev= request.POST.getlist('horario_entrev')
-    #     print(semana_entrev)
-    #     print(nome)
-    #     return redirect('projeto-detalhe',id)
-    # else:
-    #     return render(request,'projetos/projeto-detalhe.html', {'obj':obj,
-    #     'about_choices':about_choices,
-    #     'horario_choices':horario_choices,
-    #     'semana_choices':semana_choices,
-    #     'dias_da_semana': dias_da_semana,
-    #     'horarios_disponiveis': horarios_disponiveis})
+@login_required
+def projeto_register(request):
+    talent = get_object_or_404(Talento, user=request.user)
+    if request.method == 'POST':
+        form = ProjetoCreateForm(request.POST)
+        print(form.data['nome'])
+        if form.is_valid():
+            nome = form.cleaned_data['nome']
+            titulo = form.cleaned_data['titulo']
+            video1 = form.cleaned_data['video1']
+            video2 = form.cleaned_data['video2']
+            video3 = form.cleaned_data['video3']
+            video1_about = form.cleaned_data['video1_about']
+            video2_about = form.cleaned_data['video2_about']
+            video3_about = form.cleaned_data['video3_about']
+            semana_entrev = form.cleaned_data['semana_entrev']
+            horario_entrev = form.cleaned_data['horario_entrev']
+            talento = talent
+            projeto = Projeto.objects.create(nome=nome, 
+                                            titulo=titulo,
+                                            video1=video1,
+                                            video2=video2,
+                                            video3=video3,
+                                            talento=talento,
+                                            video1_about=video1_about,
+                                            video2_about=video2_about,
+                                            video3_about=video3_about,
+                                            horario_entrev=horario_entrev
+                                            )
+            print(projeto)
+            return redirect('home')
+    else:
+        form = ProjetoCreateForm()
+    return render(request, 'projetos/projeto-register.html', {'form': form})
+
+
+
+def projeto_delete(request, id):
+    talento = get_object_or_404(Talento, user=request.user)
+    obj = get_object_or_404(Projeto, pk=id, talento=talento)
+    if request.method == 'POST':
+        obj.delete()
+        return redirect('home')
+    else:
+        return render(request, 'projetos/projeto-delete.html', {'obj': obj})

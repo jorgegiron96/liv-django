@@ -91,7 +91,7 @@
     </form>
     <br />
     <div>
-      <a class="btn btn-primary btn-base" aria-current="page" href="#">Adicionar projetos</a>
+      <a class="btn btn-primary btn-base" aria-current="page" href="{% url 'projeto-register' %}">Adicionar projetos</a>
       <hr>
       <br>
       <div class="row">
@@ -102,6 +102,7 @@
               <h5 class="card-title">{{p.nome}}</h5>
               <p class="card-text">{{p.titulo}}</p>
               <a href="{% url 'projeto-detalhe' p.pk %}" class="btn btn-primary btn-base">Editar</a>
+              <a href="{% url 'projeto-delete' p.pk %}" class="btn btn-primary btn-base">Delete</a>
             </div>
           </div>
         </div>
