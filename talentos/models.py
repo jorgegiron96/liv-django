@@ -70,5 +70,7 @@ class Projeto(models.Model):
     def __str__(self) -> str:
         return self.nome
 
+#fazer um commit novo.
 
+### chage views
 
