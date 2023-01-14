@@ -2,20 +2,14 @@
 
 
 {% block content %}
-<section id="cadastro-perfil">
+<section class="container cadastro-perfil">
   <form action="" method="POST">
     {% csrf_token %}
+
     <div class="row">
-      <div class="col">
-        <h2>Cadastre-se</h2>
-      </div>
-      <div class="col">
-        <h2>Área de atuação</h2>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <div class="mb-3">
+      <div class="col-md-6 my-3">
+
+          <h2>Cadastre-se</h2>
           <label for="exampleInputEmail1" class="form-label">Usuário</label>
           <input type="text" class="form-control" name="username" />
           <label for="exampleInputEmail1" class="form-label">E-mail</label>
@@ -24,9 +18,10 @@
           <input type="password" class="form-control" name="password1" />
           <label for="exampleInputPassword1" class="form-label">Confirmar Senha</label>
           <input type="password" class="form-control" name="password2" />
-        </div>
+
       </div>
-      <div class="col">
+      <div class="col-md-6 my-3">
+        <h2>Área de atuação</h2>
         <div class="mt-4">
           <div class="form-check">
             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
@@ -62,13 +57,9 @@
       </div>
     </div>
 
-    <!-- <div class="mb-3 form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Check me out</labl>e
-        </div> -->
     <button type="submit" class="btn btn-primary btn-base">Cadastrar</button>
     <p class="text-center">
-      If you already have an account, <a href="/login">login</a> instead.
+      Se você já possui uma conta, faça o <a href="{% url 'login' %}">login</a>.
     </p>
   </form>
 </section>

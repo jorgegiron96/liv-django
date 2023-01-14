@@ -1,7 +1,10 @@
-{% extends 'base.html'%}{% load static %}
+{% extends 'base.html'%}
+
+{% load static %}
 
 
 {% block content %}
+<h1>OPA</h1>
 
 <div class="filter-btns">
   <button type="button" onclick=display_all() class="filter-btn" id="all">Todos</button>
@@ -15,9 +18,22 @@
 </div>
 
 <div id="all_items">
+
+
   <div class="filter-items">
     {% for d in talentos %}
 
+    <div class="card" style="width: 18rem;">
+      <video src="video.mp4"></video>
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+
+
+ </div>
     <div class="filter-item all new">
       <div class="item-img">
         <iframe width="350" height="250" src="{{d.video}}" title="YouTube video player" frameborder="0"
@@ -42,6 +58,8 @@
 <div id="uxd_items">
   <div class="filter-items">
     {% for d in uxd %}
+
+    
 
     <div class="filter-item all new">
 

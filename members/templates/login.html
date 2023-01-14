@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<section id="cadastro-perfil">
+<section  class="container cadastro-perfil">
   <form action="" method="POST">
     {% csrf_token %}
     <h2>Login</h2>
@@ -19,7 +19,14 @@
         <input type="checkbox" class="form-check-input" id="exampleCheck1">
         <label class="form-check-label" for="exampleCheck1">Check me out</labl>e
       </div> -->
-    <button type="submit" class="btn btn-primary btn-base">Entrar</button>
+      <div class="d-grid gap-2">
+        <button type="submit" class="btn btn-primary btn-base">Entrar</button>
+
+      </div>
+        
+        
+
+    
   </form>
 </section>
 {% endblock %}

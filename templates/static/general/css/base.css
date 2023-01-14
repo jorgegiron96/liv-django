@@ -816,17 +816,21 @@ boxbtn a {
   align-items: center;
 }
 
-#cadastro-perfil {
-  padding: 20px;
+.container.cadastro-perfil {
+
+
   margin-top: 100px;
   background: #ffffff;
   box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.25);
-  width: 771px;
-  margin: auto;
-
+  max-width: 771px;
+  padding: 20px;
   text-align: left;
   border-radius: 10px;
 }
+
+
+
+
 
 #cadastro-projeto {
   padding: 20px;
