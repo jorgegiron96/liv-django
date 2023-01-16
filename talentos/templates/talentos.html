@@ -4,56 +4,65 @@
 
 
 {% block content %}
-<h1>OPA</h1>
-
+<input type="hidden" name="category" id="category">
 <div class="filter-btns">
-  <button type="button" onclick=display_all() class="filter-btn" id="all">Todos</button>
-  <button type="button" onclick=display_uxd() class="filter-btn" id="UXD">
+
+  <!-- <button type="button"  href="{% url 'talentos' %}" data-category="ALL"onclick= filter_category(this.id)  class="filter-btn" id="all">Todos</button>
+  <button type="button" href="{% url 'talentos' %}" data-category="UXD" onclick=filter_category(this.id) class="filter-btn" id="UXD">
     UX Designer
   </button>
-  <button type="button" onclick=display_uid() class="filter-btn" id="UID">
+  <button type="button" data-category="UID" onclick=filter_category(this.id) class="filter-btn" id="UID">
     UI Designer
   </button>
-  <button type="button" onclick=display_uxw() class="filter-btn" id="UXW">UX Writer</button>
+  <button type="button" data-category="UXW "onclick=filter_category(this.id) class="filter-btn" id="UXW">UX Writer</button> -->
+
+  <a type="button" data-category="ALL" class="filter-btn" id="all">Todos</a>
+  <a type="button" data-category="UXD"  class="filter-btn" id="UXD">UX Designer</a>
+  <a type="button" data-category="UID"  class="filter-btn" id="UID">UI Designer</a>
+  <a type="button" data-category="UXW "  class="filter-btn" id="UXW">UX Writer</a>
+
 </div>
 
-<div id="all_items">
 
 
-  <div class="filter-items">
+<div class="container">
+  <div class="row g-3">
     {% for d in talentos %}
-
-    <div class="card" style="width: 18rem;">
-      <video src="video.mp4"></video>
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-
-
- </div>
-    <div class="filter-item all new">
-      <div class="item-img">
-        <iframe width="350" height="250" src="{{d.video}}" title="YouTube video player" frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen></iframe>
-      </div>
-      <div class="item-info">
-        <p>{{d.nome}}</p>
-        <p>{{d.competencias}}</p>
-        <div>
-          <span class="new-price">Etapa: {{d.etapa}}</span>
+    <div class="col-12 col-md-6 col-lg-4 col">
+      <div class="card card-talento">
+        <iframe class=video src="{{d.video}}" height="250" frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="card-body card-talento">
+          <h5 class="card-title title">{{d.nome}}</h5>
+          <p>{{d.competencias}}</p>
+          <p>Etapa: {{d.etapa}}</p>
+          
+          <a href="{% url 'talento-detalhe' d.pk %}" class="btn btn-primary check-btn">Ver Perfil</a>
         </div>
-        <a href="{% url 'talento-detalhe' d.pk %}" class="add-btn">Ver Perfil</a>
       </div>
     </div>
-
     {% endfor %}
   </div>
 </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
 
 <div id="uxd_items">
   <div class="filter-items">
@@ -126,7 +135,7 @@
 
     {% endfor %}
   </div>
-</div>
+</div> -->
 
 
 

@@ -1,44 +1,21 @@
-function display_uxd(){
-    uxd = document.getElementById('uxd_items')
-    uid = document.getElementById('uid_items')
-    uxw = document.getElementById('uxw_items')
-    all = document.getElementById('all_items')
-    uxd.style.display = 'block'
-    uid.style.display = 'none'
-    uxw.style.display = 'none'
-    all.style.display = 'none'
-}
 
+var csrf_token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
-function display_uxw(){
-    uxd = document.getElementById('uxd_items')
-    uid = document.getElementById('uid_items')
-    uxw = document.getElementById('uxw_items')
-    all = document.getElementById('all_items')
-    uxd.style.display = 'none'
-    uid.style.display = 'block'
-    uxw.style.display = 'none'
-    all.style.display = 'none'
-}
-    
-
-function display_uid(){
-    uxd = document.getElementById('uxd_items')
-    uid = document.getElementById('uid_items')
-    uxw = document.getElementById('uxw_items')
-    uxd.style.display = 'none'
-    uid.style.display = 'none'
-    uxw.style.display = 'block'
-    all.style.display = 'none'
-}
-
-function display_all(){
-    uxd = document.getElementById('uxd_items')
-    uid = document.getElementById('uid_items')
-    uxw = document.getElementById('uxw_items')
-    all = document.getElementById('all_items')
-    uxd.style.display = 'none'
-    uid.style.display = 'none'
-    uxw.style.display = 'none'
-    all.style.display = 'block'
-}
+var filterBtns = document.querySelectorAll('.filter-btn');
+filterBtns.forEach(function (btn) {
+    btn.addEventListener('click', function() {
+        console.log(btn.id);
+        
+        var filterParams = {'id': btn.id}
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'filter-items/'+filterParams.id+'/');
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.setRequestHeader('X-CSRFToken', csrf_token);
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                console.log('opa')
+            }
+        };
+        xhr.send(JSON.stringify(filterParams))
+    });
+});
