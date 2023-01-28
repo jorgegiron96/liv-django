@@ -17,7 +17,7 @@ header {
   padding: 10px;
 }
 
-.profile-info {
+/* .profile-info {
   width: 1000px;
   text-align: start;
   display: flex;
@@ -30,7 +30,7 @@ header {
 
   text-align: left;
   border-radius: 10px;
-}
+} */
 
 li {
   margin-left: 5px;
@@ -369,8 +369,10 @@ body {
   margin-top: 20px;
 }
 
-.video {
-  max-width: 100%;
+
+.video-detalhe {
+  width: 100% !important;
+  height: 400px !important;
 }
 
 .title h1 {
@@ -380,6 +382,19 @@ body {
   font-size: 36px;
   letter-spacing: 1pxt;
 }
+
+.title h2 {
+  color: #1b1919 ; 
+  text-align: start;
+  font-weight: 800;
+  font-size: 24px;
+  letter-spacing: 1pxt;
+}
+
+
+
+
+
 
 .title img {
   display: block;
@@ -509,14 +524,6 @@ body {
   animation: fadeIn 1s;
 }
 
-.videos-options {
-  left: 463px;
-  top: 24px;
-
-  background: #ffffff;
-  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.25);
-  border-radius: 4px;
-}
 
 .outros-videos {
   display: -webkit-box;
@@ -548,21 +555,6 @@ body {
 
 }
 
-.videoperfil {
-  padding: 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: space-evenly;
-  -ms-flex-pack: space-evenly;
-  justify-content: space-evenly;
-  margin-top: 24px;
-}
 
 .filter-item:hover .item-img img {
   -webkit-transform: scale(1.1);
@@ -610,7 +602,7 @@ boxbtn a {
 
 .add-btn-voltar {
   display: inline-block;
-  margin-top: 20px;
+  margin-top: 1em;
   background-color: #030003;
   text-decoration: none;
   color: #fff;
@@ -622,6 +614,7 @@ boxbtn a {
   transition: all 0.2s ease-in-out;
   width: 100%;
   text-align: left;
+  margin-bottom: 1em;
 }
 
 .add-btn2 {
@@ -889,6 +882,40 @@ boxbtn a {
   color: white;
 }
 
+.videodet.container{
+  background-color: white;
+
+
+}
+
 .flex-btn {
   width: 100%;
 }
+
+.talento-title{
+  text-align: start;
+  padding: auto;
+  padding-left: 0;
+
+}
+
+.embed-responsive-item {
+  max-width:80%;;
+
+  width: auto;
+  height: auto;
+}
+
+
+.video{
+
+  max-width: 100%;
+}
+
+
+
+.embed-responsive-item {
+  width: 100%;
+  height: 60vh;
+}
+

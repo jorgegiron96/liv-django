@@ -1,0 +1,126 @@
+{% extends 'base.html'%}
+
+{% load static %}
+
+
+{% block content %}
+
+
+<link rel="stylesheet" href="{% static 'general/css/base.css' %}">
+
+<body>
+  <div class="wrapper">
+    <div class="category-filter">
+      <div class="container">
+
+
+        <div class="filter-btns">
+          <a href="{% url 'talentos' %}" class="add-btn-voltar"> <button type="button" class="filter-btn2"
+              id="all">Voltar para
+              pesquisa</button></a>
+
+        </div>
+        <h1 class="title">Perfil do Candidato</h1>
+
+        <h2 class="title">{{obj.titulo}}</p>
+
+          <div class="videos-options container">
+
+            <div class="box-perfil">
+              <div class="video">
+
+                <div class="embed-responsive embed-responsive-16by9">
+                  <iframe class="embed-responsive-item-5" height=500vh width=80% src="{{obj.video}}"></iframe>
+                </div>
+              </div>
+
+              <div class="item-info">
+
+                <div>
+                  <p style="margin-left: 100px ;" class="new-price">Etapa: Research Projeto Plataforma Liv</p>
+
+                  </br>
+                  </br>
+                  <p style="margin-left: 100px ;"><strong>Outros Vídeos de {{ obj.nome}}</p></strong> <br>
+                  <div class="outros-videos">
+
+                    <div class="box-video">
+                      <div class="item-img">
+                        <iframe width="250" height="250" src="https://www.youtube.com/embed/wKDT9Q0Z0qw"
+                          title="YouTube video player" frameborder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowfullscreen></iframe>
+                      </div>
+                      <div class="item-info">
+                        <p>Etapa de Escolhas e Idealização</br> Projeto Plataforma Liv</p>
+
+                      </div>
+                    </div>
+
+                    <boxBtns2 class="boxbtn">
+                      <a target="_blank"
+                        href="https://drive.google.com/file/d/17cDXeXqXtnaYt4Rgw8_noc7Smj3KxSXt/view?usp=share_link"
+                        download="CurriculoElizaCesar" class="add-btn2">Ver Currículo</a>
+                      <a onclick="openModal3()" class="add-btn2">Agendar Entrevista</a>
+                      <a target="_blank" href="https://zeroheight.com/32eaf8ca8/p/24c8d1-liv-plataforma"
+                        class="add-btn2">Projeto Plataforma Liv</a>
+                      <a onclick="openModal()" class="add-btn2">Projetos DogWay</a>
+                      <br>
+                    </boxBtns2>
+                  </div>
+                </div>
+
+
+                <div class="modal-overlay" id="overlay">
+                  <div class="modal" id="modal">
+                    <div class="modal-header">
+                      Meu Projeto - DogWay
+                    </div>
+                    <div class="modal-footer">
+                      1 resultado
+                    </div>
+                  </div>
+                </div>
+
+                <div class="modal-overlay2" id="overlay2">
+                  <div class="modal2" id="modal2">
+                    <div class="modal-header2">
+                      Meu Site
+                    </div>
+                    <div class="modal-content2">
+                      <a href="" class="site">
+                        <embed style="height:100vh" width="100%"
+                          src="https://zeroheight.com/32eaf8ca8/p/24c8d1-liv-plataforma">
+                      </a>
+                    </div>
+                    <div class="modal-footer2">
+                      1 resultado
+                    </div>
+                  </div>
+                </div>
+
+                <div class="modal-overlay3" id="overlay3">
+                  <div class="modal3" id="modal3">
+                    <div class="modal-header3">
+                      Agende um horário para entrevista
+                    </div>
+                    <div class="modal-content3">
+                      <a href="" class="site">
+                        <embed style="height:100vh" width="100%"
+                          src="https://calendly.com/elizacesarux/meetting?month=2022-12">
+                      </a>
+                    </div>
+                    <div class="modal-footer3">
+                      Eliza César - UX Designer com especialidade em UI Design
+                    </div>
+                  </div>
+                </div>
+
+
+                <script src="script.js"></script>
+</body>
+
+</html>
+</section>
+
+{% endblock %}

@@ -12,36 +12,26 @@ def index(request):
 def talentos(request):
 
     talentos_list = Talento.objects.order_by('nome')
-    uxd = Talento.objects.filter(is_uxdesigner=1)
-    uid = Talento.objects.filter(is_uidesigner=1)
-    uxw = Talento.objects.filter(is_uxwriter=1)
-
-    return render(request, 'talentos.html',
-                  {'talentos': talentos_list,
-                   'uxd': uxd,
-                   'uid': uid,
-                   'uxw': uxw
-                   })
-
-
-def filter_talentos(request, id):
-    
-
-    # filter_params = json.loads(request.body)
-    # id = filter_params.get('id')
-
-    talentos_list = Talento.objects.all()
-    if id == 'UXD':
-        talentos_list = Talento.objects.filter(is_uxdesigner=True)
-    elif id == 'UID':
-        talentos_list = Talento.objects.filter(is_uidesigner=True)
-    elif id == 'UXW':
-        talentos_list = Talento.objects.filter(is_uxwriter=True)
 
     return render(request, 'talentos.html',
                   {'talentos': talentos_list
                    })
 
+def filter_talentos(request, id):
+    
+    if request.method == 'POST':
+
+        talentos_list = Talento.objects.all()
+        if id == 'UXD':
+            talentos_list = Talento.objects.filter(is_uxdesigner=True)
+        elif id == 'UID':
+            talentos_list = Talento.objects.filter(is_uidesigner=True)
+        elif id == 'UXW':
+            talentos_list = Talento.objects.filter(is_uxwriter=True)
+
+        return render(request, 'filter-items.html',
+                    {'talentos': talentos_list
+                    })
 
 def talento_detalhe(request, id):
 
