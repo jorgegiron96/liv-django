@@ -9,13 +9,26 @@
 <div class="filter-btns">
 
 
-  <form >
-    <input type="submit" class="filter-btn" id="all" value="Todos">
-    <input type="submit" class="filter-btn" id="UXD" value="UX Designer">
-    <input type="submit" class="filter-btn" id="UID" value="UI Designer">
-    <input type="submit" class="filter-btn" id="UXW" value="UX Writer">
+<!-- <form >
+  <input type="submit" class="filter-btn" id="all" value="Todos">
+  <input type="submit" class="filter-btn" id="UXD" value="UX Designer">
+  <input type="submit" class="filter-btn" id="UID" value="UI Designer">
+  <input type="submit" class="filter-btn" id="UXW" value="UX Writer">
 </form>
-</div>
+
+ -->
+<a class="filter-btn" id="all" href="{% url 'filter-talentos' id='ALL' %}">Todos</a>
+
+
+
+<a class="filter-btn" id="all" href="{% url 'filter-talentos' id='UXD' %}">UX Designer</a>
+
+<a class="filter-btn" id="all" href="{% url 'filter-talentos' id='UID' %}">UI Designer</a>
+
+<a class="filter-btn" id="all" href="{% url 'filter-talentos' id='UXW' %}">UX Writer</a>
+
+
+
 
 
 <div class="container">

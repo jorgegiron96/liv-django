@@ -8,9 +8,9 @@ class Talento(models.Model):
     titulo = models.CharField(max_length=50)
     etapa = models.CharField(max_length=50)
     video   = models.CharField(max_length=120)
-    is_uxdesigner = models.BooleanField()
-    is_uidesigner = models.BooleanField()
-    is_uxwriter = models.BooleanField()
+    is_uxdesigner = models.BooleanField(null=True)
+    is_uidesigner = models.BooleanField(null=True)
+    is_uxwriter = models.BooleanField(null=True)
 
     user = models.OneToOneField(User, on_delete=models.PROTECT,blank=True,null=True, default=1, related_name='user')
     # image = models.ImageField(default='default.jpg', upload_to='profile_pics')
@@ -28,7 +28,7 @@ class Talento(models.Model):
             compet.append('UI Designer')
 
         if self.is_uxwriter:
-            compet.append('UX Designer')
+            compet.append('UX Writer')
 
         compet = ', '.join(compet)
 

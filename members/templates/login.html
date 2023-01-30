@@ -3,6 +3,12 @@
 
 {% block content %}
 
+<div>
+  {% for message in messages %}
+  <div class="alert alert-success" role="alert">{{message}}</div>
+  {% endfor %}
+</div>
+
 <section  class="container cadastro-perfil">
   <form action="" method="POST">
     {% csrf_token %}

@@ -1,6 +1,4 @@
-{% extends 'base.html'%}
-
-{% block content %}
+{% extends 'base.html'%} {% block content %}
 
 <div>
   {% for message in messages %}
@@ -8,9 +6,7 @@
   {% endfor %}
 </div>
 <div class="profile-info">
-  <div class='container cadastro-perfil'>
-    <!-- <div class="container">
-      <div class='container'> -->
+  <div class="container cadastro-perfil">
     <h1>Perfil</h1>
     <form action="" method="POST">
       {% csrf_token %}
@@ -18,71 +14,158 @@
         <div class="col-sm">
           <div class="mt-4">
             <label for="exampleInputPassword1" class="form-label">Nome</label>
-            <input type="text" class="form-control" name="first_name" value="{{obj.user.first_name}}" />
+            <input
+              type="text"
+              class="form-control"
+              name="first_name"
+              value="{{obj.user.first_name}}"
+            />
           </div>
           <div class="mt-4">
-            <label for="exampleInputPassword1" class="form-label">Último Nome</label>
-            <input type="text" class="form-control" name="last_name" value="{{obj.user.last_name}}" />
+            <label for="exampleInputPassword1" class="form-label"
+              >Último Nome</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              name="last_name"
+              value="{{obj.user.last_name}}"
+            />
           </div>
           <div class="mt-4">
             <label class="form-label">Email</label>
-            <input type="email" class="form-control" name="email" value="{{obj.user.email}}" disabled />
+            <input
+              type="email"
+              class="form-control"
+              name="email"
+              value="{{obj.user.email}}"
+              disabled
+            />
           </div>
           <div class="mt-4">
             <label class="form-label">Título</label>
-            <input type="text" class="form-control" name="titulo" value="{{obj.titulo}}" disabled />
+            <input
+              type="text"
+              class="form-control"
+              name="titulo"
+              value="{{obj.titulo}}"
+              disabled
+            />
           </div>
           <div class="mt-4">
             <label for="exampleInputPassword1" class="form-label">Etapa</label>
-            <input type="text" class="form-control" name="etapa" value="{{obj.etapa}}" />
+            <input
+              type="text"
+              class="form-control"
+              name="etapa"
+              value="{{obj.etapa}}"
+            />
           </div>
           <div class="mt-4">
-            <label for="exampleInputPassword1" class="form-label">Video de Apresentação</label>
-            <input type="text" class="form-control" name="video" value="{{obj.video}}" />
-            <input class="btn btn-primary btn-base mt-3" type="submit" value="Atualizar" />
+            <label for="exampleInputPassword1" class="form-label"
+              >Video de Apresentação</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              name="video"
+              value="{{obj.video}}"
+            />
+            <input
+              class="btn btn-primary btn-base mt-3"
+              type="submit"
+              value="Atualizar"
+            />
           </div>
         </div>
         <div class="col-sm">
           <div class="p-3 mt-5">
             <div class="form-check">
-              <input name="ux_design" class="form-check-input" type="checkbox" id="flexCheckDefault" {%
-                    if
-                    obj.is_uxdesigner
-                    %} value="True" checked {%
-                    else
-                    %} value="False" {%
-                    endif
-                    %} />
+              <input
+                name="ux_design"
+                class="form-check-input"
+                type="checkbox"
+                id="flexCheckDefault"
+                {%
+                if
+                obj.is_uxdesigner
+                %}
+                value="True"
+                checked
+                {%
+                else
+                %}
+                value="False"
+                {%
+                endif
+                %}
+              />
               <label class="form-check-label" for="flexCheckDefault">
                 UX Design
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" name="ui_design" type="checkbox" id="flexCheckDefault" {%if
-                    obj.is_uidesigner%} checked value="True" {%
-                    else
-                    %} value="False" {%
-                    endif
-                    %} />
+              <input
+                class="form-check-input"
+                name="ui_design"
+                type="checkbox"
+                id="flexCheckDefault"
+                {%if
+                obj.is_uidesigner%}
+                checked
+                value="True"
+                {%
+                else
+                %}
+                value="False"
+                {%
+                endif
+                %}
+              />
               <label class="form-check-label" for="flexCheckDefault">
                 Ui Design
               </label>
             </div>
             <div class="form-check">
-              <input name="ux_writer" class="form-check-input" type="checkbox" id="flexCheckDefault"
-                {%if obj.is_uxwriter%} checked value="True" {% else %} value="False" {% endif %} />
+              <input
+                name="ux_writer"
+                class="form-check-input"
+                type="checkbox"
+                id="flexCheckDefault"
+                {%if
+                obj.is_uxwriter%}
+                checked
+                value="True"
+                {%
+                else
+                %}
+                value="False"
+                {%
+                endif
+                %}
+              />
               <label class="form-check-label" for="flexCheckDefault">
                 UX Writer
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="flexCheckDefault"
+              />
               <label class="form-check-label" for="flexCheckDefault">
                 UX Strategy
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="flexCheckDefault"
+              />
               <label class="form-check-label" for="flexCheckDefault">
                 UX Research
               </label>
@@ -93,9 +176,14 @@
     </form>
     <br />
     <div>
-      <a class="btn btn-primary btn-base" aria-current="page" href="{% url 'projeto-register' %}">Adicionar projetos</a>
-      <hr>
-      <br>
+      <a
+        class="btn btn-primary btn-base"
+        aria-current="page"
+        href="{% url 'projeto-register' %}"
+        >Adicionar projetos</a
+      >
+      <hr />
+      <br />
       <div class="row">
         {% for p in projetos %}
         <div class="col-sm-6">
@@ -103,8 +191,16 @@
             <div class="card-body">
               <h5 class="card-title">{{p.nome}}</h5>
               <p class="card-text">{{p.titulo}}</p>
-              <a href="{% url 'projeto-detalhe' p.pk %}" class="btn btn-primary btn-base">Editar</a>
-              <a href="{% url 'projeto-delete' p.pk %}" class="btn btn-primary btn-base">Delete</a>
+              <a
+                href="{% url 'projeto-detalhe' p.pk %}"
+                class="btn btn-primary btn-base"
+                >Editar</a
+              >
+              <a
+                href="{% url 'projeto-delete' p.pk %}"
+                class="btn btn-primary btn-base"
+                >Delete</a
+              >
             </div>
           </div>
         </div>

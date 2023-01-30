@@ -1,0 +1,54 @@
+{% extends 'base.html'%}
+
+{% load static %}
+
+
+{% block content %}
+<meta name="csrf-token" content="{{ csrf_token }}">
+<input type="hidden" name="category" id="category">
+<div class="filter-btns">
+
+
+<!-- <form >
+  <input type="submit" class="filter-btn" id="all" value="Todos">
+  <input type="submit" class="filter-btn" id="UXD" value="UX Designer">
+  <input type="submit" class="filter-btn" id="UID" value="UI Designer">
+  <input type="submit" class="filter-btn" id="UXW" value="UX Writer">
+</form>
+
+ -->
+<a class="filter-btn" id="all" href="{% url 'filter-talentos' id='ALL' %}">Todos</a>
+
+
+
+<a class="filter-btn" id="all" href="{% url 'filter-talentos' id='UXD' %}">UX Designer</a>
+
+<a class="filter-btn" id="all" href="{% url 'filter-talentos' id='UID' %}">UI Designer</a>
+
+<a class="filter-btn" id="all" href="{% url 'filter-talentos' id='UXW' %}">UX Writer</a>
+
+
+
+
+
+<div class="container">
+  <div class="row g-3">
+    {% for d in talentos %}
+    <div class="col-12 col-md-6 col-lg-4 col">
+      <div class="card card-talento">
+        <iframe class=video src="{{d.video}}" height="250" frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="card-body card-talento">
+          <h5 class="card-title title">{{d.nome}}</h5>
+          <p>{{d.competencias}}</p>
+          <p>Etapa: {{d.etapa}}</p>
+          
+          <a href="{% url 'talento-detalhe' d.pk %}" class="btn btn-primary check-btn">Ver Perfil</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

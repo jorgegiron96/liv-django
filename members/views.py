@@ -47,9 +47,10 @@ def home(request):
         talento =Talento.objects.filter(user=current_user)
         if user.exists():
             messages.success(request, 'Perfil atualizado')
-            user.update(first_name = first_name,
+            user.update(
                         last_name= last_name)
             talento.update(
+                        nome = first_name,
                         etapa= etapa,
                         video= video,
                         is_uxdesigner = ux_design,
@@ -83,8 +84,10 @@ def register_view(request):
             # return HttpResponse('As duas senhas inseridas não são iguais.')
         elif user:
             return HttpResponse('Já existe um usuário com esse username')
+            
         else:
             user = User.objects.create_user(username=username, email=email, password=password1)
+            Talento.objects.create(user=user)
             return render(request, 'register.html',{'form': form})
     
 
