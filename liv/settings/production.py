@@ -1,7 +1,7 @@
 from .base import *
 
 DEBUG = False
-ALLOWED_HOSTS = ['jorgegiron.pythonanywhere.com']
+ALLOWED_HOSTS = ['jorgegiron.pythonanywhere.com','plataformaliv.pythonanywhere.com']
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
